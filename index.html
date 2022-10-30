@@ -43,7 +43,7 @@
   </div>
 
   <script>
-    function debounce(func, wait = 20, immediate = true) {
+    function debounce(func, wait = 30, immediate = false) {
       var timeout;
       return function() {
         var context = this, args = arguments;
@@ -69,14 +69,14 @@
         const isHalfShown = slideInAt > sliderImage.offsetTop;
         const isNotScrolledPast = window.scrollY < imageBottom;
         if (isHalfShown && isNotScrolledPast) {
-          sliderImage.classList.add('active');
+          sliderImage.classList.add('inactive');
         } else {
-          sliderImage.classList.remove('active');
+          sliderImage.classList.remove('inactive');
         }
       });
     }
 
-    window.addEventListener('scroll', debounce(checkSlide));
+    window.addEventListener('click', debounce(checkSlide));
 
   </script>
 
